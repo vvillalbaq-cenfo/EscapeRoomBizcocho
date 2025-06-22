@@ -14,9 +14,9 @@ import java.io.*;
  * sitio
  * https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
  * 
- * @author Mauricio Andrés Zamora Hernández
- * @version 1.1
- */
+ * @author Bizcocho
+ * @version 1.0
+ * */
 public class Utils {
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     static PrintStream out = System.out;
