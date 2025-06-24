@@ -6,8 +6,6 @@ public class CodigoCuartoUno {
       //Limpiar la consola
       Utils.limpiarConsola();
 
-      if (inicioPrograma == true) {
-        // Aquí va el código para el cuarto uno
-      }
+     
     }
 }

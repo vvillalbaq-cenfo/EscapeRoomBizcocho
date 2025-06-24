@@ -18,7 +18,7 @@ public class InicioUsuario {
             System.out.println("El nombre de usuario no puede estar vacío. Por favor, intenta de nuevo.");
         } else { 
             System.out.println("¡Hola " + nombreUsuario + "! Estas preparado para lograr escpar del Bizcocho?");
-            boolean inicioPrograma = true;
+            //boolean inicioPrograma = true;
         }
       
         
