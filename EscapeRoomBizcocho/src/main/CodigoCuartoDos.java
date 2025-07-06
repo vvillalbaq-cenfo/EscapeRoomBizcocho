@@ -14,7 +14,7 @@ public class CodigoCuartoDos {
     boolean camaraFalsa = false, escritorio = false, colchon = false, cajaFuerte = false;
     boolean puertaMetalica = false, botellaAgua = false, rasgaduraColchon = false;
     boolean pared = false, pizarra = false, lamparaEncendida = true;
-    String informeMedico = "", notaLlave = "", notaMojada = "", codigoParcial = "";
+    String informeMedico = "", notaMojada = "", codigoParcial = "";
 
     System.out.println("Te despiertas en un cuarto oscuro...");
     System.out.println("Tienes 10 minutos para escapar antes de que el gas tóxico te mate.");
