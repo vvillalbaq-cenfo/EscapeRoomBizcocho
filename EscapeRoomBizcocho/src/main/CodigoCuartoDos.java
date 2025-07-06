@@ -1,4 +1,4 @@
-package main;
+package proyectoIntroAProgramacion;
 
 import utilitarios.Utils;
 
@@ -7,17 +7,18 @@ public class CodigoCuartoDos {
     Utils.limpiarConsola();
 
     // Variables de juego
-    double tiempo = 10;
+    double tiempo = 15;
     int nivelActual = 2;
     int intentosCaja = 5;
-    int codigoCaja = 3792;
-    boolean camaraFalsa = false, escritorio = false, colchon = false, cajaFuerte = false;
+    int codigoCaja = 0;
+    boolean camaraFalsa = false, escritorio = false, colchon = false, cajaFuerte = false, sabeCodigoCaja = false;
     boolean puertaMetalica = false, botellaAgua = false, rasgaduraColchon = false;
     boolean pared = false, pizarra = false, lamparaEncendida = true;
     String informeMedico = "", notaMojada = "", codigoParcial = "";
 
     System.out.println("Te despiertas en un cuarto oscuro...");
     System.out.println("Tienes 10 minutos para escapar antes de que el gas tóxico te mate.");
+    Utils.limpiarConsola();
 
     while (tiempo > 0 && !puertaMetalica) {
       System.out.println("\nNivel " + nivelActual + " | Tiempo restante: " + tiempo + " minutos");
@@ -32,6 +33,7 @@ public class CodigoCuartoDos {
       System.out.println("0. Esperar");
 
       int opcion = Utils.leerEntero("Elige una opción (0-7):");
+        Utils.limpiarConsola();
 
       switch (opcion) {
         case 1:
@@ -44,7 +46,7 @@ public class CodigoCuartoDos {
           }
           tiempo -= 0.5;
           break;
-
+        
         case 2:
           if (!escritorio) {
             System.out.println("Encuentras un folder, una caja fuerte, una llave, una lámpara vieja y una botella de agua.");
@@ -100,18 +102,25 @@ public class CodigoCuartoDos {
         case 6:
           if (!cajaFuerte) {
             boolean cajaAbierta = false;
-            for (; intentosCaja > 0 && !cajaAbierta; intentosCaja--) {
-              int intento = Utils.leerEntero("Ingresa el código de la caja fuerte (" + intentosCaja + " intentos restantes):");
-              if (intento == codigoCaja) {
-                System.out.println("Código correcto. Encuentras una llave con la letra 'H'. La puerta se abre.");
-                notaLlave = "H";
-                codigoParcial += "H";
-                puertaMetalica = true;
-                cajaAbierta = true;
+            do {
+                sabeCodigoCaja = Utils.leerBoolean("¿Sabes el código de la caja fuerte? (4 dígitos)");
+                
+              if (sabeCodigoCaja == true) {
+                codigoCaja = Utils.leerEntero("Escribe el código de la caja fuerte (4 dígitos):");
+                if (codigoCaja == 2973) {
+                  System.out.println("¡Felicidades! Has abierto la caja fuerte.");
+                  cajaAbierta = true;
+                } else {
+                  intentosCaja--;
+                  System.out.println("Código incorrecto. Te quedan " + intentosCaja + " intentos.");
+                }                
               } else {
                 System.out.println("Código incorrecto.");
+               }
+                 
+            } while (intentosCaja > 0 && !cajaAbierta && !sabeCodigoCaja);{
               }
-            }
+            
 
             if (!puertaMetalica && intentosCaja == 0) {
               System.out.println("Se agotaron los intentos. La caja fuerte permanece cerrada.");
@@ -144,13 +153,13 @@ public class CodigoCuartoDos {
           break;
       }
     }
-
+    Utils.limpiarConsola();
     System.out.println();
     if (puertaMetalica) {
-      System.out.println("¡Escapaste con éxito!");
+      System.out.println("Oh! Oh! De la caja fuerte sale un gas que te hace sentir mareado y te desmayas.");
       System.out.println("Código recolectado: " + codigoParcial);
     } else {
-      System.out.println("El gas tóxico te alcanzó. El tiempo se acabó.");
+      System.out.println("Tiempo agotado! Game Over! El Bizcocho te ha atrapado! Entró el gas mortífero y te aniquiló.");
     }
   }
 }
