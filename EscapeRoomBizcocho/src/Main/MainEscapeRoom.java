@@ -1,4 +1,4 @@
-package main;
+package Main;
 import utilitarios.Utils;
 
 public class MainEscapeRoom {
@@ -87,4 +87,3 @@ public class MainEscapeRoom {
 
 }
 
-}
