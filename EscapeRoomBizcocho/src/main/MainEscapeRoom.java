@@ -1,6 +1,6 @@
 public class MainEscapeRoom {
     public static void main(String[] args) {
-
+        
     }
     public static void iniciarJuego() {
 
